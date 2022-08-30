@@ -1,0 +1,20 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/login_status.css' %}">
+    <link rel="stylesheet" media="(max-width: 500px)" href="{% static 'css/login_status.css' %}" />
+    <title>Document</title>
+</head>
+<body>
+    <form method="GET">
+        <h3 id="error_message">{{error_message}}</h3>
+        <h3 class="title_form">Código de verificación</h3>
+        <input id="password" type="password" name="password" autocomplete="off">
+        <button id="button"type="submit">Ingresar</button>
+    </form>
+</body>
+</html>

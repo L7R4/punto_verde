@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{% static 'css/votacion.css' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" media="(max-width:500px)"href="{% static 'css/votacion.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto Verde</title>
+</head>
+<body>
+    <a id="quit" href="{%url 'logout'%}">Salir</a>
+    
+    <main class="index_puntuacion">
+        <figure class="logotipo">
+            <a href="{% url 'loginStatus' %}"><img src="{% static 'images/logotipo v1.png' %} "></a>
+        </figure>
+
+        <div class="index_text">
+            <h1>¡Gracias por tu compra!</h1>
+            <h3>¿Cómo calificarías la atención?</h3>
+        </div>
+
+        <form method="POST" class="index_puntuacion_imagenes">
+            {% csrf_token %}
+            <button type= "submit" value="happy" name="vote"> <img src="{% static 'images/happy face.png' %}"> </button>
+            <button type="submit" value="neutral" name="vote"> <img src="{% static 'images/neutral face.png' %} "> </button> 
+            <button type="submit" value="sad" name="vote"> <img src="{% static 'images/sad face.png' %} "> </button>     
+        </form>
+
+    </main>
+</body>
+</html>

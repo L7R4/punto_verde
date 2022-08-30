@@ -1,0 +1,540 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: poppins;
+    src: url("../fonts/Poppins-Regular.ttf");
+}
+
+html{
+    font-size: 62.5%;
+    width: 100vw;
+    height: 100vh;  
+}
+body{
+    background: #272622;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    position: relative;
+}
+#quit{
+    /* justify-self: flex-end; */
+    font-family: 'Poppins', sans-serif;;
+    font-size: 1.5vw;
+    font-weight: 600;
+    text-decoration: none;
+    color: rgb(219, 216, 216);
+    align-self: flex-end;
+    margin-right: 6%;
+    
+}
+.logotipo{
+    position:absolute;
+    top: 3%;
+    z-index: 2;
+    align-self: center;
+}
+.logotipo img{
+    border-radius: 100px;
+    height: 10vw;
+    width: 10vw;
+}
+.cancel{
+    position: absolute;
+    top: 3%;
+    right: 2%;
+    z-index: 2;
+}
+.cancel img{
+    height: 3rem;
+    width: 3rem;
+}
+/* index.html */
+
+.index_puntuacion{
+    width: 90%;
+    height: 80%;
+    border-radius: 10px;
+    background: #bac22d;
+    margin-top: 2%;
+    display: flex;
+    flex-flow: column;
+}
+
+.index_text{
+    height: 35%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding-top: 8%;
+}
+.index_text h1{
+    font-family: 'Poppins', sans-serif;;
+    font-size: 4vw;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 2%;
+}
+.index_text h3{
+    font-family: 'Poppins', sans-serif;;
+    font-size: 2.4vw;
+    font-weight: 600;
+    text-align: center;
+}
+
+.index_puntuacion_imagenes{
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding-top: 5%;
+}
+.index_puntuacion_imagenes img{
+    border-radius: 100px;
+    width: 100%;
+    height: 100%;
+}
+.index_puntuacion_imagenes button{
+    height: 16vw;
+    width: 16vw;
+    background-color: #ffffff;
+    padding: 1%;
+    border-radius: 100%;
+    border: none;
+    box-shadow: 5px 7px 4px rgba(0, 0, 0, 0.25);
+    cursor: pointer;
+}
+
+/* encuesta.html */
+
+.encuesta{
+    width: 90%;
+    height: 570px;
+    border-radius: 10px;
+    background: #bac22d;
+    margin-top: 2%;
+    position: relative;
+    z-index: 1;
+    padding: 0 10%;
+    display: flex;
+    flex-flow: column;
+}
+
+.logotipo_encuesta{
+    position:absolute;
+    top: -13%;
+    z-index: 2;
+    align-self: center;
+}
+.logotipo_encuesta img{
+    border-radius: 100px;
+    height: 10vw;
+    width: 10vw;
+}
+
+
+.encuesta_text{
+    height: 65%;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding-top: 8%;
+}
+.encuesta_text h1{
+    font-family: 'Poppins', sans-serif;;
+    font-size: 5.4rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 3rem;
+}
+.encuesta_text p{
+    font-family: 'Poppins', sans-serif;;
+    font-size: 3.4rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+.encuesta_tick{
+    display: flex;
+    justify-content: center;
+    margin-top: 4%;
+}
+.encuesta_tick button{
+    background-color: transparent;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+#input_number{
+    background-color: #d1d1d1;
+    color: rgb(0, 0, 0);
+    border: none;
+    border-radius: 36px;
+    text-decoration: none;
+    box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25);
+    width: 56rem;
+    height: 8rem;
+
+    padding: 1.6rem 3.2rem;
+    margin-right: 2rem;
+
+    font-family: 'Poppins', sans-serif;;
+    font-size: 3rem;
+    font-weight: 400;
+}
+
+#input_number[type=number]::-webkit-inner-spin-button, 
+#input_number[type=number]::-webkit-outer-spin-button { 
+  -webkit-appearance: none; 
+  margin: 0; 
+}
+.encuesta_tick img{
+    height: 8rem;
+    width: 8rem;
+    border-radius: 20px;
+}
+
+
+/* admin */
+
+body.admin{
+    background: #272622;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.admin_cancel{
+    position: fixed;
+    top: 4%;
+    right: 4%;
+}
+.admin_cancel a img{
+    height: 3vh;
+}
+.admin_main{
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    width: 95%;
+    height: 95%;
+    border-radius: 10px;
+    background: #bac22d;
+}
+.admin_resultados{
+    width: 46%;
+    height: 85%;
+    border-radius: 4px;
+    background: #ffffff;
+    display: flex;
+    margin-bottom: 3rem;
+    flex-flow: column;
+    padding: 0 20px;
+    justify-content: center;
+}
+.admin_resultados__title{
+    color: #3A6500;
+    font-size: 2vw;
+    font-family: "Poppins";
+    font-weight: "600";
+    text-align: center;
+    margin-bottom: 3vh;
+    margin-top: 1vh;
+}
+
+.count_number{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 30%;
+}
+.count_number>h3{
+    color: #272622;
+    font-size: 1.3vw;
+    font-family: poppins;
+    text-align: center;
+}
+.count_number>h3>img{
+    width: 4vw;
+    height: 4vw;
+}
+.grafico_votos{
+    height: 40%;
+    margin-top: 7%;
+}
+
+.admin_numeros{
+    width: 46%;
+    height: 85%;
+    border-radius: 4px;
+    background: #ffffff;
+    margin-bottom: 3rem;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding: 0 20px;
+}
+.admin_numeros__title{
+    color: #3A6500;
+    font-size: 2vw;
+    font-family: "Poppins";
+    font-weight: "600";
+    text-align: center;
+    margin-bottom: 3vh;
+    margin-top: 1vh;
+}
+
+.admin_numeros > ul{
+    height: 77%;
+    overflow-y: scroll;
+}
+.admin_numeros > ul::-webkit-scrollbar{
+    background-color: rgb(234, 229, 229);
+    width: 4px;
+    height: 10px;
+    /* display: none; */
+}
+.admin_numeros > ul::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: #6b6b6b;
+    height: 20px;
+}
+
+.admin_numeros > ul>li{
+    list-style: none;
+    margin: 1% 0;
+}
+.linea{
+    /* line-height: 1px; */
+    width: 100%;
+    border-top: 1px solid #27262244;
+}
+.admin_numeros > ul>li>a{
+    color: #272622;
+    font-size: 1.3vw;
+    font-family: poppins;
+    text-decoration: none;
+    margin-left: 4vw;
+}
+
+
+
+
+
+#container {
+    height: 100%;
+    width: 100%;
+}
+
+.highcharts-title {
+    fill: #333333;
+    font-size: 1.5em;
+    display: none !important;
+  }
+
+.highcharts-axis-line {
+    fill: none;
+    stroke: none;
+}
+
+.highcharts-axis-labels > text {
+    fill: black !important;
+    color: black!important;
+    font-size: 1.6vh !important;
+    font-family: poppins;
+    font-weight: 500
+    
+}
+
+
+.highcharts-credits {
+    display: none;
+}
+
+@media screen and (max-width: 500px) {
+    .error{
+        font-size: 4vw;
+    }
+
+    .index_puntuacion_imagenes{
+        flex-flow: column;
+        margin: 0;
+        padding-top: 0;
+        justify-content: space-evenly;
+        height: 66%; 
+    }
+
+    .index_puntuacion{
+        margin-top: 4%;
+    }
+    .index_text{
+        height: 25%;
+        padding-top: 6%;
+    }
+    .index_text h1{
+        font-size: 7vw; 
+    }
+    .index_text h3{
+        font-size: 4.4vw;   
+    }
+    #quit{
+        font-size: 4vw;
+    }
+    .index_puntuacion_imagenes button{
+        height: 30vw;
+        width: 30vw;
+    }
+    .logotipo{
+        top: 6%;
+        z-index: 2;
+        height: 22vw;
+        width: 22vw;
+    }
+    .logotipo img{
+        border-radius: 100px;
+        height: 100%;
+        width: 100%;
+    }
+    .encuesta{
+        padding: 0;
+    }
+
+    .encuesta_tick{
+        margin-top: 13%;
+    }
+
+    .encuesta_text h1{
+        font-size: 9vw;
+
+    }
+    .encuesta_text p{
+        font-size: 6vw;
+        padding: 0 3%;
+    }
+
+
+    #input_number{
+        width: 70vw;
+        height: 50px;
+
+        padding: 1.6rem 3.2rem;
+        margin-right: 2rem;
+        
+        font-size: 3rem;
+        font-weight: 400;
+    }
+
+    .encuesta_tick img{
+        height: 8vw;
+        width: 8vw;
+        border-radius: 20px;
+    }
+
+    .logotipo_encuesta{
+        top: -9%;
+        height: 20vw;
+        width: 20vw;
+    }
+    .logotipo_encuesta img{
+        border-radius: 100px;
+        height: 100%;
+        width: 100%;
+    }
+
+    .cancel{
+        position: absolute;
+        top: 2%;
+        right: 2%;
+        height: 5vw;
+        width: 5vw;
+        z-index: 2;
+    }
+    .cancel img{
+        width: 100%;
+        height: 100%;
+    }
+
+
+
+    .admin_main{
+        flex-flow: column;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 10px;
+        background: #bac22d;
+    }
+
+    .admin_resultados{
+        width: 95%;
+        height: 55%;
+        margin: 4% 0;
+    }
+    .admin_resultados__title{
+        font-size: 6vw;
+        margin-bottom: 3vh;
+        margin-top: 1vh;
+    }
+
+    .admin_numeros{
+        width: 95%;
+        height: 55%;
+        margin-bottom: 4%;
+    }
+
+    .count_number>h3{
+        color: #272622;
+        font-size: 4vw;
+        font-family: poppins;
+        text-align: center;
+    }
+    .count_number>h3>img{
+        width: 13vw;
+        height: 13vw;
+    }
+
+
+    .admin_numeros__title{
+        font-size: 6vw;
+    }
+    .admin_numeros > ul>li{
+        list-style: none;
+    }
+    .linea{
+        /* line-height: 1px; */
+        width: 100%;
+        border-top: 1px solid #27262244;
+    }
+    .admin_numeros > ul>li>a{
+        font-size: 4vw;
+    }
+
+    .admin_cancel{
+        position: fixed;
+        top: 6%;
+        right: 7%;
+    }
+    .admin_cancel a img{
+        height: 4vw;
+        width: 4vw;
+    }
+
+
+}
+
+
+
+
+
+
+
+

@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto Verde Login</title>
+    <link rel="stylesheet" href="{% static 'css/index_login.css' %}">
+    <link rel="stylesheet" media="(max-width: 500px)" href="{% static 'css/index_login.css' %}" />
+</head>
+<body>
+    <form id= "form-login"action="" method="POST">
+        {% csrf_token %}
+        {% if  error_message == True%}
+            {% if form.error_messages %}
+            
+                <img src="{% static 'images/alert_login_icon.png' %}" alt="alert-image" width="60px" height="60px">
+                <h4 class ="error">{{form.error_messages.invalid_login}}</h4>
+            {% endif %}
+        {% endif %}
+        <label>Nombre de usuario</label>
+        <input type="text" name="username" id="username" required autocomplete="off">
+        <label>Contraseña</label>
+        <input type="password" name="password" id ="password" required autocomplete="off">
+        <button type="submit">Iniciar Sesion</button>
+            
+    </form>
+</body>
+</html>

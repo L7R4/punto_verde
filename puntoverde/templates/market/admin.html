@@ -1,0 +1,103 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{% static 'css/votacion.css' %}">
+    {% comment %} <link rel="stylesheet" href="{% static 'css/h.css' %}"> {% endcomment %}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Punto Verde</title>
+</head>
+<body class="admin">
+
+    <figure class="admin_cancel">
+        <a href="{% url 'market:home' %}"> <img src="{% static 'images/cross.png' %}"> </a>
+    </figure>
+
+    <main class="admin_main"> 
+        <section class="admin_resultados">
+            <h1 class="admin_resultados__title">VOTOS</h1> 
+            <div class="count_number">
+                <h3><img src="{% static 'images/happy face.png' %}"><br>{{count_happy}}<br>{{count_happy_porcentaje}}</h3>
+                
+                <h3><img src="{% static 'images/neutral face.png' %} "><br>{{count_neutral}}<br>{{count_neutral_porcentaje}}</h3>
+           
+                <h3><img src="{% static 'images/sad face.png' %} "><br>{{count_sad}}<br> {{count_sad_porcentaje}}</h3>
+                 
+            </div>
+            <div class="grafico_votos">
+                <div id="container"></div>
+            </div>
+        </section>
+
+        <section class="admin_numeros">
+            <h1 class="admin_numeros__title">NÚMEROS</h1> 
+            <ul>
+                {% for phone_number in phone_numbers %}
+                    <li><a href="https://wa.me/549{{phone_number.number}}?text=hola%20puto%20te%20estoy%20enviando%20un%20mensaje%20automatico%20desde%20mi%20pagina">> {{phone_number.number}}</a></li>
+                    <div class="linea"></div>
+                {% endfor %}
+                
+            </ul>
+        </section>
+    </main>    
+    <script src="{% static 'lib/highcharts/highcharts.js' %}"></script>
+    <script src="{% static 'lib/highcharts/modules/exporting.js' %}"></script>
+    <script src="{% static 'lib/highcharts/modules/export-data.js' %}"></script>
+    <script src="{% static 'lib/highcharts/modules/accessibility.js' %}"></script>
+
+    <script type="application/javascript">
+        Highcharts.chart('container', {
+            colors: ['#3A6500'],
+            chart: {
+                type: 'bar',
+                
+            },
+            title: {
+                text: 'VOTOS',
+            },
+            
+            xAxis: {
+                categories: ['Feliz','Neutral',"Enojado"],
+                title: {
+                    text: null
+                },
+                
+            },
+            yAxis: {
+                min: 0,
+                title: {
+                    text: 'Votos',
+                },
+                gridLineColor: 'transparent',
+                visible:false,
+    
+            },
+            tooltip: {
+                valueSuffix: ''
+            },
+            plotOptions: {
+                bar: {
+                    dataLabels: {
+                        enabled: true
+                    }
+                }
+            },
+  
+            series: [{
+                name: "votos",
+                showInLegend: false,
+                data: [{{count_happy}},{{count_neutral}},{{count_sad}}],
+                colorByPoint:true,
+            }]
+        });
+        
+    </script>
+    
+
+</body>
+</html>

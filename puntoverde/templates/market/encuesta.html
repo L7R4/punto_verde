@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <link rel="stylesheet" href="{%static 'css/votacion.css'%}">
+    <link rel="stylesheet" media="(max-width:500px)" href="{%static 'css/votacion.css'%}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Punto Verde</title>
+</head>
+<body>
+
+    
+
+    <main class="encuesta"> 
+        <figure class="logotipo_encuesta">
+            <img src="{% static 'images/logotipo v1.png' %}">
+        </figure>
+        <figure class="cancel">
+            <a href="{% url 'market:home' %}"> <img src="{% static 'images/cross.png'%}"> </a>
+        </figure>
+        <div class="encuesta_text"> 
+            <h1>¡Gracias por calificarnos!</h1>
+            <p>Si te interesa dejarnos una sugerencia
+            o queja adicional, completá el casillero
+            con tu número de telefono</p>
+        </div>
+
+        <form method = "POST" class="encuesta_tick">
+            {% csrf_token %}
+            <input type="number" name="number" autocomplete="off" id="input_number">
+            <button type="submit"> <img src="{% static 'images/checked.png'%}"> </button>
+        </form>
+
+    </main>    
+    
+</body>
+</html>

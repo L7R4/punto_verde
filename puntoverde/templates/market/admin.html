@@ -10,7 +10,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script src="{% static 'js/filesaver.js' %}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
+    <script src="{% static 'js/xlsx_full_min.js' %}"></script>
+    {% comment %} <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script> {% endcomment %}
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Punto Verde</title>
 </head>
@@ -31,19 +32,33 @@
                 <h3><img src="{% static 'images/sad face.png' %} "><br>{{count_sad}}<br> {{count_sad_porcentaje}}</h3>
                  
             </div>
-            {% comment %} <div class="grafico_votos">
-                <div id="container"></div>
-            </div> {% endcomment %}
-            <div>
-                <label for="start_date">Desde:</label>
 
-                <input type="date" id="start_date">
+            <div class ="download_votes">
+                <h1>Exportar a <strong>Excel</strong> </h1>
+                <div class="range_dates_container">
+
+                    <div class="start_date_container">
+                        <label for="start_date">De:</label>
+                        <input type="date" id="start_date" placeholder="nada">
+                    </div>
+
+                    <div class="end_date_container">
+                        <label for="end_date">Hasta:</label>
+                        <input type="date" id="end_date">
+                    </div>
+
+                </div>
+                
+
                 <button id="button_export">
-                    Exportar a Excel
+                    Descargar
                 </button>
-                <label for="end_date">Hasta:</label>
-                <input type="date" id="end_date">
-
+                <div class= "message_1">
+                    <h2>Ingrese correctamente las fecha de inicio y final</h2>
+                </div>
+                <div class= "message_2">
+                    <h2>Ingrese todas las fechas solicitadas</h2>
+                </div>
             </div>
         </section>
 
@@ -58,59 +73,8 @@
             </ul>
         </section>
     </main>    
-    {% comment %} <script src="{% static 'lib/highcharts/highcharts.js' %}"></script>
-    <script src="{% static 'lib/highcharts/modules/exporting.js' %}"></script>
-    <script src="{% static 'lib/highcharts/modules/export-data.js' %}"></script>
-    <script src="{% static 'lib/highcharts/modules/accessibility.js' %}"></script> {% endcomment %}
-    <script src="{% static 'js/export.js' %}"></script>
-
-    {% comment %} <script type="application/javascript">
-        Highcharts.chart('container', {
-            colors: ['#3A6500'],
-            chart: {
-                type: 'bar',
-                
-            },
-            title: {
-                text: 'VOTOS',
-            },
-            
-            xAxis: {
-                categories: ['Feliz','Neutral',"Enojado"],
-                title: {
-                    text: null
-                },
-                
-            },
-            yAxis: {
-                min: 0,
-                title: {
-                    text: 'Votos',
-                },
-                gridLineColor: 'transparent',
-                visible:false,
     
-            },
-            tooltip: {
-                valueSuffix: ''
-            },
-            plotOptions: {
-                bar: {
-                    dataLabels: {
-                        enabled: true
-                    }
-                }
-            },
-  
-            series: [{
-                name: "votos",
-                showInLegend: false,
-                data: [{{count_happy}},{{count_neutral}},{{count_sad}}],
-                colorByPoint:true,
-            }]
-        });
-        
-    </script> {% endcomment %}
+    <script src="{% static 'js/export.js' %}"></script>
     
 
 </body>

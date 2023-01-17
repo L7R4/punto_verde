@@ -81,7 +81,8 @@ class admin(View):
             for vote in todos_votos:
                 data_voto = {}
                 date = vote.date
-                data_voto['date'] = date.strftime('%d/%m/%Y %H:%M')
+                data_voto['date'] = date.strftime('%d/%m/%Y')
+                data_voto['hour'] = date.strftime('%H:%M')
                 data_voto['vote'] = vote.vote
                 data_voto['name'] = vote.name
                 data_voto['number'] = vote.number

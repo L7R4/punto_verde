@@ -256,7 +256,7 @@ body.admin{
     display: flex;
     justify-content: space-around;
     align-items: center;
-    height: 30%;
+    height: 40%;
 }
 .count_number>h3{
     color: #272622;
@@ -268,9 +268,85 @@ body.admin{
     width: 4vw;
     height: 4vw;
 }
-.grafico_votos{
-    height: 40%;
+.download_votes{
+    height: 30%;
     margin-top: 7%;
+
+}
+.download_votes > h1{
+    text-align: center;
+    color: #272622;
+    font-size: 1.3vw;
+    font-family: poppins;
+}
+
+.download_votes > h1>strong{
+    color: #47841f;
+}
+
+.range_dates_container
+{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 2rem;
+}
+
+.end_date_container, .start_date_container
+{
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.end_date_container > input, .start_date_container > input
+{
+    border-radius: 5px;
+    border-color: #000000;
+    outline: none;
+    height: 2.4rem;
+    padding: 0 1rem;
+    text-align: center;
+    font-family: poppins;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+
+
+.end_date_container > label, .start_date_container >label{
+    color: #272622;
+    font-size: 1.4rem;
+    font-family: poppins;
+}
+
+.message_1, .message_2{
+    display: none;
+}
+.message_1 > h2, .message_2 > h2
+{
+    color: #e63c44;
+    font-size: 1.3rem;
+    font-family: poppins;
+    text-align: center;
+}
+
+.message_1.show, .message_2.show{
+    display: block;
+    margin: 0 auto;
+}
+#button_export{
+    display: block;
+    margin: 0 auto;
+    margin-top: 2rem;
+    padding: 0.4rem 2rem;
+    border-radius: 6px;
+    font-family: poppins;
+    font-weight: 600;
+    border-color: transparent;
+    background-color: #47841f;
+    cursor:pointer;
+    margin-bottom: 1rem;
 }
 
 .admin_numeros{

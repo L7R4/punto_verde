@@ -5,6 +5,8 @@ from django.views.generic import View, DetailView
 from django.http import HttpResponse
 from django.http import JsonResponse
 from .forms import VoteForm, EncuestaForm
+import json
+
 
 
 class homePage(View):
@@ -54,10 +56,13 @@ class admin(View):
 
 
     def get(self, request, *args, **kwargs):
+        todos_votos = PersonVote.objects.all()
         total_votos= PersonVote.objects.all().count()
         happy_votes = PersonVote.objects.filter(vote='happy').count()
         neutral_votes = PersonVote.objects.filter(vote='neutral').count()
         sad_votes = PersonVote.objects.filter(vote='sad').count()
+        
+
         if total_votos == 0:
             total_votos = 1
         if request.user.is_authenticated:
@@ -68,9 +73,24 @@ class admin(View):
                 "count_neutral_porcentaje": str(round((neutral_votes*100)/total_votos,1)) + "%",
                 "count_sad": sad_votes,
                 "count_sad_porcentaje": str(round((sad_votes*100)/total_votos,1)) + "%",
-                "phone_numbers": PersonVote.objects.exclude(number='')
+                "phone_numbers": PersonVote.objects.exclude(number=''),
+                "todos_votos": todos_votos,
             }
-            
+            list_votos = []
+
+            for vote in todos_votos:
+                data_voto = {}
+                date = vote.date
+                data_voto['date'] = date.strftime('%d/%m/%Y %H:%M')
+                data_voto['vote'] = vote.vote
+                data_voto['name'] = vote.name
+                data_voto['number'] = vote.number
+                list_votos.append(data_voto)
+            data = json.dumps(list_votos,default=str)
+
+            if request.headers.get('X-Requested-With') == 'XMLHttpRequest':
+                return HttpResponse(data, 'application/json')
+
             return render(request,self.template_name,context)
         else:
             return redirect("login")

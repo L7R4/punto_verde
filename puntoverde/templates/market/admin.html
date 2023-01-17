@@ -9,6 +9,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <script src="{% static 'js/filesaver.js' %}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.16.2/xlsx.full.min.js"></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin - Punto Verde</title>
 </head>
@@ -29,8 +31,19 @@
                 <h3><img src="{% static 'images/sad face.png' %} "><br>{{count_sad}}<br> {{count_sad_porcentaje}}</h3>
                  
             </div>
-            <div class="grafico_votos">
+            {% comment %} <div class="grafico_votos">
                 <div id="container"></div>
+            </div> {% endcomment %}
+            <div>
+                <label for="start_date">Desde:</label>
+
+                <input type="date" id="start_date">
+                <button id="button_export">
+                    Exportar a Excel
+                </button>
+                <label for="end_date">Hasta:</label>
+                <input type="date" id="end_date">
+
             </div>
         </section>
 
@@ -45,12 +58,13 @@
             </ul>
         </section>
     </main>    
-    <script src="{% static 'lib/highcharts/highcharts.js' %}"></script>
+    {% comment %} <script src="{% static 'lib/highcharts/highcharts.js' %}"></script>
     <script src="{% static 'lib/highcharts/modules/exporting.js' %}"></script>
     <script src="{% static 'lib/highcharts/modules/export-data.js' %}"></script>
-    <script src="{% static 'lib/highcharts/modules/accessibility.js' %}"></script>
+    <script src="{% static 'lib/highcharts/modules/accessibility.js' %}"></script> {% endcomment %}
+    <script src="{% static 'js/export.js' %}"></script>
 
-    <script type="application/javascript">
+    {% comment %} <script type="application/javascript">
         Highcharts.chart('container', {
             colors: ['#3A6500'],
             chart: {
@@ -96,7 +110,7 @@
             }]
         });
         
-    </script>
+    </script> {% endcomment %}
     
 
 </body>
